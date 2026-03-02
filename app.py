@@ -98,4 +98,5 @@ def game_over():
     return render_template('game_over.html', pwen=pwen, tit=tit)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Render bezwen port 10000 pou l ka louvri sit la
+    app.run(host='0.0.0.0', port=10000)
