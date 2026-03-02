@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="hat">
+<head>
+    <meta charset="UTF-8">
+    <title>Channmas - Rezilta Final</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', sans-serif; 
+            text-align: center; padding: 50px; 
+            background-color: {% if pwen >= 80 %} #28a745 {% else %} #0033a0 {% endif %}; 
+            color: white; transition: 0.8s;
+        }
+        .kad { 
+            background: white; color: black; padding: 40px; border-radius: 20px; 
+            display: inline-block; box-shadow: 0 10px 30px rgba(0,0,0,0.3); max-width: 500px;
+        }
+        h1 { color: {% if pwen >= 80 %} #28a745 {% else %} #d21034 {% endif %}; font-size: 40px; }
+        .tit { 
+            font-size: 32px; font-weight: bold; margin: 20px 0; padding: 15px;
+            border: 3px solid {% if pwen >= 80 %} #FFD700 {% else %} #0033a0 {% endif %};
+            color: {% if pwen >= 80 %} #B8860B {% else %} #0033a0 {% endif %};
+            background: #f9f9f9; border-radius: 10px;
+        }
+        .pwen { font-size: 26px; font-weight: bold; }
+        .bouton { background: #d21034; color: white; padding: 15px 30px; text-decoration: none; border-radius: 10px; font-weight: bold; display: inline-block; margin-top: 20px;}
+    </style>
+</head>
+<body>
+    <div class="kad">
+        {% if pwen >= 80 %}
+            <h1>FELISITASYON! 🎉</h1>
+            <p>Ou se yon vre poto mitan kilti a!</p>
+        {% else %}
+            <h1>FINISMAN</h1>
+            <p>Ou ka fè pi byen toujou!</p>
+        {% endif %}
+
+        <p class="pwen">Sko final ou: {{ pwen }}/100</p>
+        <p>Tit ou resevwa:</p>
+        <div class="tit">{{ tit }}</div>
+        
+        <a href="/" class="bouton">REKÒMANSE JWÈT LA</a>
+    </div>
+
+    {% if pwen >= 80 %}
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+    </script>
+    {% endif %}
+</body>
+</html>

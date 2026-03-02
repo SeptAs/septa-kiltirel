@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="hat">
+<head>
+    <meta charset="UTF-8">
+    <title>Rezilta</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 50px; background-color: #f0f0f0; }
+        .kad { background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .bon { color: green; }
+        .pa_bon { color: red; }
+        .pwen-box { font-size: 24px; font-weight: bold; margin: 20px 0; color: #0033a0; }
+    </style>
+</head>
+<body>
+    <div class="kad">
+        {% if bon %}
+    <h1 class="bon">✅ Bravo!</h1>
+        {% elif tan_fini %}
+    <h1 class="pa_bon">⏰ Tan an fini! Ou dwe pi rapid.</h1>
+        {% else %}
+    <h1 class="pa_bon">❌ O o! Erè </h1>
+        {% endif %}
+
+        <div class="pwen-box">Sko ou: {{ pwen }} pwen</div>
+
+        <a href="/jwe" style="text-decoration: none; background: #d21034; color: white; padding: 10px 20px; border-radius: 5px;">PWOCHEN KESYON</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="hat">
+<head>
+    <meta charset="UTF-8">
+    <title>Channmas - Jwèt la</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; text-align: center; background-color: #eef2f3; padding: 20px; }
+        .box { background: white; max-width: 500px; margin: auto; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .opsyon { display: block; width: 100%; margin: 10px 0; padding: 10px; border: 2px solid #0033a0; border-radius: 5px; background: none; cursor: pointer; font-size: 16px; transition: 0.3s; }
+        .opsyon:hover { background-color: #0033a0; color: white; }
+    </style>
+</head>
+<body>
+    <div id="timer-box" style="font-size: 20px; font-weight: bold; color: #d21034; margin-bottom: 10px;">
+    Tan ki rete: <span id="segond">10</span>s
+</div>
+    <p>Kesyon {{ kote_nou_ye }} sou 10</p>
+    <div class="box">
+        <h2>Kesyon</h2>
+        <p id="tèks-kesyon">{{ k.tèks }}</p>
+        <h3>Pwen ou: {{ pwen }}</h3>
+
+        <form action="/tcheke" method="POST">
+            <input type="hidden" name="id_kesyon" value="{{ k.id }}">
+            
+            {% for o in k.opsyon %}
+                <button type="submit" name="repons_itilizatè" value="{{ o }}" class="opsyon">{{ o }}</button>
+            {% endfor %}
+        </form>
+    </div>
+
+    <script>
+    let tan = 10; // 10 segonn pou chak kesyon
+    let spanSegond = document.getElementById('segond');
+    
+    let dekont = setInterval(function() {
+        tan--;
+        spanSegond.innerText = tan;
+        
+        if (tan <= 0) {
+            clearInterval(dekont);
+            alert("Tan an fini! W ap pèdi pwen sa a.");
+            // Si tan an fini, nou soumèt fòm nan otomatikman ak yon repons vid
+            document.querySelector('form').submit();
+        }
+    }, 1000); // Chak 1 segonn li retire 1 nan "tan"
+</script>
+</body>
+</html>
